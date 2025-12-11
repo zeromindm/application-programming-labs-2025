@@ -13,4 +13,9 @@ def load_data_from_annotation(annotation_file: str) -> pd.DataFrame:
 
 
 def save_dataframe(df: pd.DataFrame, output_file: str = 'processed_data.csv'):
+    """
+    Сохранение DataFrame в CSV файл
+    """
+    os.makedirs(os.path.dirname(output_file) if os.path.dirname(output_file) else '.', exist_ok=True)
+    
     df.to_csv(output_file, index=False, encoding='utf-8')
